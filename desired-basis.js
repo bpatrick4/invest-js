@@ -1,17 +1,18 @@
-// input values
-const ownedShareCount = 10;
-const desiredShareCount= 20;
-const currentCostBasis = 30;
-const desiredCostBasis = 25;
+// user-input 
+const ownedShareCount = 65; //starting number of shares
+const desiredShareCount= 100; //ending number of shares
+const currentCostBasis = 68; //starting cost basis ($)
+const desiredCostBasis = 65; //ending cost basis ($)
 
-// functions 
-function getBuyPrice(startingShareCount, endingShareCount, startingCostBasis, endingCostBasis) {
-  const deltaShareCount = (endingShareCount - startingShareCount);
-  const startingInvested = (startingShareCount * startingCostBasis);
-  const endingInvested = (endingShareCount * endingCostBasis);
-  const sharePrice = ((endingInvested - startingInvested) / deltaShareCount);
+// require utils
+const { getBuyPrice } = require("./utils/getBuyPrice");
 
-  return console.log(`Buy Price: $${sharePrice.toFixed(2)}`);
-}
+// call function
+const buyPrice = getBuyPrice(ownedShareCount, desiredShareCount, currentCostBasis, desiredCostBasis);
 
-getBuyPrice(ownedShareCount, desiredShareCount, currentCostBasis, desiredCostBasis);
+// display action required to achieve goal
+console.log(
+`Current: ${ownedShareCount} shares @ $${currentCostBasis}/share
+Goal: ${desiredShareCount} shares @ $${desiredCostBasis}/share
+Action: buy ${(desiredShareCount - ownedShareCount)} shares @ $${buyPrice.toFixed(2)}/share`
+);

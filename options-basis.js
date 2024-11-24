@@ -1,23 +1,19 @@
-// input values
-const shareCount = 542;
-const costBasis = 17.38;
-const totalOptionsReturn = 805;
+// user-input 
+const shareCount = 542; //number of shares
+const costBasis = 17.38; //cost basis ($)
+const totalReturn = 805; //options return ($)
 
-// functions 
-function getAdjustedBasis(shareCount, costBasis, totalOptionsReturn) {
-  const totalInvested = (shareCount * costBasis);
-  const adjustedBasis = ((totalInvested - totalOptionsReturn) / shareCount);
- 
-  return adjustedBasis;
-}
+// require utils
+const { getAdjustedBasis } = require("./utils/getAdjustedBasis");
 
 // call functions 
-const newBasis = getAdjustedBasis(shareCount, costBasis, totalOptionsReturn);
+const adjBasis = getAdjustedBasis(shareCount, costBasis, totalReturn);
 const saved = ((costBasis - newBasis) / costBasis) * 100;
 
-// log values
+// display adjusted return
 console.log(
-`Current Basis: $${costBasis.toFixed(2)}
+`Adjusted Basis: $${adjBasis.toFixed(2)}
+Current Basis: $${costBasis.toFixed(2)}
 Shares Owned: ${shareCount}
-Adjusted Basis: $${newBasis.toFixed(2)}
-Return from Options: ${saved.toFixed(2)}%`)
+Return from Options: ${saved.toFixed(2)}%`
+);
