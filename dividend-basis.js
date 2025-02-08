@@ -1,14 +1,14 @@
 // user-input 
-const shareCount = 542; //number of shares
-const costBasis = 17.38; //cost basis ($)
-const totalReturn = 805; //dividend return ($)
+const shareCount = 108; //number of shares
+const costBasis = 64.4; //cost basis ($)
+const totalReturn = 39.00; //dividend return ($)
 
 // require utils
 const { getAdjustedBasis } = require("./utils/getAdjustedBasis");
 
 // call functions 
 const adjBasis = getAdjustedBasis(shareCount, costBasis, totalReturn);
-const saved = ((costBasis - newBasis) / costBasis) * 100;
+const saved = ((costBasis - adjBasis) / costBasis) * 100;
 
 // display adjusted return
 console.log(

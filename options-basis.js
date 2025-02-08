@@ -8,7 +8,7 @@ const { getAdjustedBasis } = require("./utils/getAdjustedBasis");
 
 // call functions 
 const adjBasis = getAdjustedBasis(shareCount, costBasis, totalReturn);
-const saved = ((costBasis - newBasis) / costBasis) * 100;
+const saved = ((costBasis - adjBasis) / costBasis) * 100;
 
 // display adjusted return
 console.log(

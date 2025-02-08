@@ -1,8 +1,8 @@
 // user-input 
-const ownedShareCount = 65; //starting number of shares
-const desiredShareCount= 100; //ending number of shares
-const currentCostBasis = 68; //starting cost basis ($)
-const desiredCostBasis = 65; //ending cost basis ($)
+const ownedShareCount = 108; //starting number of shares
+const desiredShareCount= 200; //ending number of shares
+const currentCostBasis = 64.4; //starting cost basis ($)
+const desiredCostBasis = 60; //ending cost basis ($)
 
 // require utils
 const { getBuyPrice } = require("./utils/getBuyPrice");
